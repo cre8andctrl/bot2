@@ -17,7 +17,7 @@ app.get('/' , function(req , res){
 	res.send("Hi I am a chatbot")
 })
 
-token = "EAAEsFSCrZBDgBAP1EhlbLjCZAqii0OQPbcRRUGFTWnCMc3JeBkUWHZA8fAOnUJxKh4sADVvDzHIZCMOEjUVlvj1666wrcXiCBfNZCBNbFGz4TWEf8AKKJGgqVZAu36X2uyWNvWhvuwTHv3mcrF54kbNKZAC3AkvsasqyRfpURuFWCyE6t9Fw8u3"
+let token = "EAAEsFSCrZBDgBAP1EhlbLjCZAqii0OQPbcRRUGFTWnCMc3JeBkUWHZA8fAOnUJxKh4sADVvDzHIZCMOEjUVlvj1666wrcXiCBfNZCBNbFGz4TWEf8AKKJGgqVZAu36X2uyWNvWhvuwTHv3mcrF54kbNKZAC3AkvsasqyRfpURuFWCyE6t9Fw8u3"
 
 //facebook
 app.get('/webhook/' , function(req ,res){
@@ -28,7 +28,7 @@ app.get('/webhook/' , function(req ,res){
 })
 
 app.post('/webhook/' , function(req , res){
-	let messaging_events = req.body.entry[0].messaging_events
+	let messaging_events = req.body.entry[0].messaging
 	for(let i = 0; i<messaging_events.length;i++){
 		let event = messaging_events[i]
 		let sender = event.sender.id
@@ -44,10 +44,10 @@ function sendText(sender , text){
 	let messageData = {text: text}
 	request({
 		url: "https://graph.facebook.com/v2.6/me/messages",
-		qs : {access_token , token},
+		qs : {access_token : token},
 		method: "POST",
 		json: {
-			receipt: {id: sender},
+			recipient: {id: sender},
 			message: messageData
 		}
 	} , function(error , response , body){
