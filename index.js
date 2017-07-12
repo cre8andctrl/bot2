@@ -17,14 +17,14 @@ app.get('/' , function(req , res){
 	res.send("Hi I am a chatbot")
 })
 
-let token = "EAAEsFSCrZBDgBAP1EhlbLjCZAqii0OQPbcRRUGFTWnCMc3JeBkUWHZA8fAOnUJxKh4sADVvDzHIZCMOEjUVlvj1666wrcXiCBfNZCBNbFGz4TWEf8AKKJGgqVZAu36X2uyWNvWhvuwTHv3mcrF54kbNKZAC3AkvsasqyRfpURuFWCyE6t9Fw8u3"
+let token = "EAAE1Fas2ddoBAN8nmL9SOsDpqFxLMMOxZAij28ZAvmkx5Nrfkiy1u0m3SaNwOm8Wc3oqzA1mjhab9aTEVw0dmsZCCuqCj70MJCcb7pZAZAu7LaDeG5Amt7vJ1oq6qbc3EZBzwXEhzd2iJWvf9dSnNguZCnlcnzOL2GCI4Amqj269WplHynxdRkPAT8dnEjWH80ZD"
 
 //facebook
 app.get('/webhook/' , function(req ,res){
-	if(req.query['hub.verify_token'] === "ryan"){
+	if(req.query['hub.verify_token'] === "comawhite"){
 		res.send(req.query['hub.challenge'])
 	}
-	res.send("Token don't match")
+	res.send("Token don't match kasi eh")
 })
 
 app.post('/webhook/' , function(req , res){
