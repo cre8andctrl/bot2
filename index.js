@@ -6,16 +6,6 @@ const request = require('request')
 
 const app = express()
 
-var mysql = require('mysql');
-
-//test
-var con = mysql.createConnection({
-  host: "119.92.153.41:3306",
-  user: "root",
-  password: "011580",
-  database: "iloilocity"
-});
-
 app.set('port' , (process.env.PORT || 5000))
  
 //Allow us to process data
@@ -24,7 +14,7 @@ app.use(bodyParser.json())
 
 //Routes
 app.get('/' , function(req , res){
-	res.send("Hi I am a chatbot ginging")
+	res.send("Hi I am a chatbot")
 })
 
 //let token = "EAAE1Fas2ddoBAN8nmL9SOsDpqFxLMMOxZAij28ZAvmkx5Nrfkiy1u0m3SaNwOm8Wc3oqzA1mjhab9aTEVw0dmsZCCuqCj70MJCcb7pZAZAu7LaDeG5Amt7vJ1oq6qbc3EZBzwXEhzd2iJWvf9dSnNguZCnlcnzOL2GCI4Amqj269WplHynxdRkPAT8dnEjWH80ZD"
@@ -36,16 +26,6 @@ app.get('/webhook/' , function(req ,res){
 	}
 	res.send("Token don't match kasi eh")
 })
-
-//mysql query
-con.connect(function(err) {
-  if (err) throw err;
-  con.query("SELECT * FROM test", function (err, result, fields) {
-    if (err) throw err;
-    console.log(result);
-  });
-});
-
 
 app.post('/webhook/', function(req, res) {
 	let messaging_events = req.body.entry[0].messaging
