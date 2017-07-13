@@ -41,14 +41,12 @@ app.post('/webhook/', function(req, res) {
 	});
 
 
-	
-
 	for (let i = 0; i < messaging_events.length; i++) {
 		let event = messaging_events[i]
 		let sender = event.sender.id
 		if (event.message && event.message.text) {
 			let text = event.message.text
-			//sendText(sender, "Text echo: " + text.substring(0, 100))
+			
 			
 			con.connect(function(err) {
 				if (err) throw err;
@@ -61,7 +59,7 @@ app.post('/webhook/', function(req, res) {
 			});
 			});
 			
-			
+			sendText(sender, "Text echo: " + text.substring(0, 100))
 			
 		}
 	}
