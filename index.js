@@ -55,11 +55,11 @@ app.post('/webhook/', function(req, res) {
 				//console.log(result);
 				//qry = query(result)
 				
-				//sendText(sender, "Text echo: " + result)
+				sendText(sender, "Text echo: " + result)
 			});
 			});
 			
-			sendText(sender, "Text echo: " + text.substring(0, 100))
+			//sendText(sender, "Text echo: " + text.substring(0, 100))
 			
 		}
 	}
