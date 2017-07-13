@@ -5,7 +5,7 @@ const bodyParser  = require('body-parser')
 const request = require('request')
 var mysql = require('mysql');
 
-var qry = "tae";
+var qry;
 const app = express()
 
 
@@ -52,15 +52,17 @@ app.post('/webhook/', function(req, res) {
 			
 			con.connect(function(err) {
 				if (err) throw err;
-				con.query("SELECT * FROM users WHERE username ='"+text+"'", function (err, result, fields) {
+				con.query("SELECT * FROM 'users' WHERE username ='"+text+"'", function (err, result, fields) {
 				if (err) throw err;
 				//console.log(result);
-				qry = query(result)
+				//qry = query(result)
+				
+				sendText(sender, "Text echo: " + result)
 			});
 			});
 			
 			
-			sendText(sender, "Text echo: " + qry)
+			
 		}
 	}
 	res.sendStatus(200)
