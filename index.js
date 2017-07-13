@@ -3,8 +3,25 @@
 const express = require('express')
 const bodyParser  = require('body-parser')
 const request = require('request')
+var mysql = require('mysql');
+
 
 const app = express()
+
+var con = mysql.createConnection({
+  host: "119.92.153.41",
+  user: "root",
+  password: "011580",
+  database: "iloilocity"
+});
+
+con.connect(function(err) {
+  if (err) throw err;
+  con.query("SELECT * FROM users", function (err, result, fields) {
+    if (err) throw err;
+    console.log(result);
+  });
+});
 
 app.set('port' , (process.env.PORT || 5000))
  
