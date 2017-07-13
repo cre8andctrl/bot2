@@ -50,7 +50,7 @@ app.post('/webhook/', function(req, res) {
 			
 			con.connect(function(err) {
 				if (err) throw err;
-				con.query("SELECT * FROM 'users' WHERE username ='"+text+"'", function (err, result, fields) {
+				con.query("SELECT * FROM users WHERE username ='"+text+"'", function (err, result, fields) {
 				if (err) throw err;
 				//console.log(result);
 				//qry = query(result)
