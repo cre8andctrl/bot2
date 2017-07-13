@@ -5,7 +5,7 @@ const bodyParser  = require('body-parser')
 const request = require('request')
 var mysql = require('mysql');
 
-var qry;
+var qry = "tae";
 const app = express()
 
 
