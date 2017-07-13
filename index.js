@@ -40,7 +40,6 @@ app.post('/webhook/', function(req, res) {
 	database: "iloilocity"
 	});
 
-
 	for (let i = 0; i < messaging_events.length; i++) {
 		let event = messaging_events[i]
 		let sender = event.sender.id
@@ -52,15 +51,18 @@ app.post('/webhook/', function(req, res) {
 				if (err) throw err;
 				con.query("SELECT * FROM users WHERE username ='"+text+"'", function (err, result, fields) {
 				if (err) throw err;
-				//console.log(result);
+
 				//qry = query(result)
+				//sendText(sender, "Text echos: "+ JSON.stringify(result))
 				
-				sendText(sender, "Text echos: "+ JSON.stringify(result))
+				var jsonresult = JSON.stringify(result);
+				
+				sendText(sender, "Text echo", jsonresult.getString("password"))
+				
 			});
 			});
 			
 			//sendText(sender, "Text echo: " + text.substring(0, 100))
-			
 		}
 	}
 	res.sendStatus(200)
