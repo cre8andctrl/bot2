@@ -8,21 +8,6 @@ var mysql = require('mysql');
 
 const app = express()
 
-var con = mysql.createConnection({
-  host: "119.92.153.41",
-  user: "root",
-  password: "011580",
-  database: "iloilocity"
-});
-
-con.connect(function(err) {
-  if (err) throw err;
-  con.query("SELECT * FROM users", function (err, result, fields) {
-    if (err) throw err;
-    //console.log(result);
-	
-  });
-});
 
 app.set('port' , (process.env.PORT || 5000))
  
@@ -47,6 +32,24 @@ app.get('/webhook/' , function(req ,res){
 
 app.post('/webhook/', function(req, res) {
 	let messaging_events = req.body.entry[0].messaging
+	
+	var con = mysql.createConnection({
+	host: "119.92.153.41",
+	user: "root",
+	password: "011580",
+	database: "iloilocity"
+	});
+
+	con.connect(function(err) {
+		if (err) throw err;
+		con.query("SELECT * FROM users", function (err, result, fields) {
+		if (err) throw err;
+		//console.log(result);
+	
+		});
+	});
+	
+
 	for (let i = 0; i < messaging_events.length; i++) {
 		let event = messaging_events[i]
 		let sender = event.sender.id
