@@ -53,11 +53,11 @@ app.post('/webhook/', function(req, res) {
 				if (err) throw err;
 
 				//qry = query(result)
-				//sendText(sender, "Text echos: "+ JSON.stringify(result))
+				sendText(sender, "Text echos: "+ JSON.stringify(result))
 				
-				var jsonresult = JSON.stringify(result);
+				//var jsonresult = JSON.stringify(result);
 				
-				sendText(sender, "Text echo"+ jsonresult.getString("password"))
+				//sendText(sender, "Text echo"+ jsonresult.getString("password"))
 				
 			});
 			});
