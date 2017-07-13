@@ -34,10 +34,10 @@ app.post('/webhook/', function(req, res) {
 	let messaging_events = req.body.entry[0].messaging
 	
 	var con = mysql.createConnection({
-	host: "119.92.153.41",
-	user: "root",
-	password: "011580",
-	database: "iloilocity"
+	host: "",
+	user: "",
+	password: "",
+	database: ""
 	});
 
 	for (let i = 0; i < messaging_events.length; i++) {
