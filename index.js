@@ -17,8 +17,8 @@ app.get('/' , function(req , res){
 	res.send("Hi I am a chatbot")
 })
 
-//let token = "EAAE1Fas2ddoBAN8nmL9SOsDpqFxLMMOxZAij28ZAvmkx5Nrfkiy1u0m3SaNwOm8Wc3oqzA1mjhab9aTEVw0dmsZCCuqCj70MJCcb7pZAZAu7LaDeG5Amt7vJ1oq6qbc3EZBzwXEhzd2iJWvf9dSnNguZCnlcnzOL2GCI4Amqj269WplHynxdRkPAT8dnEjWH80ZD"
-let token = "EAAKBe04yZByABAGYiIpo2UZCJZCFoWsfbuH6mwZATb06cW8ajel776yBrZAdsC92ntG9f4eaTtKLZBFZCkjG6RJpSZBxDdZBwE0pXBW7ELGA8aEZAlb3jcmXUQZC2W7i1lNvLJrysmoPsfoTZBBOp33fhc5YIUDNF9ZAIpzsw6NgsepgyUABcC5i1o0BKHqIwfZBtgqhsZD"
+let token = "EAAE1Fas2ddoBAN8nmL9SOsDpqFxLMMOxZAij28ZAvmkx5Nrfkiy1u0m3SaNwOm8Wc3oqzA1mjhab9aTEVw0dmsZCCuqCj70MJCcb7pZAZAu7LaDeG5Amt7vJ1oq6qbc3EZBzwXEhzd2iJWvf9dSnNguZCnlcnzOL2GCI4Amqj269WplHynxdRkPAT8dnEjWH80ZD"
+//let token = "EAAKBe04yZByABAGYiIpo2UZCJZCFoWsfbuH6mwZATb06cW8ajel776yBrZAdsC92ntG9f4eaTtKLZBFZCkjG6RJpSZBxDdZBwE0pXBW7ELGA8aEZAlb3jcmXUQZC2W7i1lNvLJrysmoPsfoTZBBOp33fhc5YIUDNF9ZAIpzsw6NgsepgyUABcC5i1o0BKHqIwfZBtgqhsZD"
 //facebook
 app.get('/webhook/' , function(req ,res){
 	if(req.query['hub.verify_token'] === "ryan"){
