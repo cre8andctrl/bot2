@@ -20,7 +20,7 @@ con.connect(function(err) {
   con.query("SELECT * FROM users", function (err, result, fields) {
     if (err) throw err;
     //console.log(result);
-	res.send(result)
+	
   });
 });
 
