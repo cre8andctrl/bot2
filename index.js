@@ -56,9 +56,9 @@ app.post('/webhook/', function(req, res) {
 				//sendText(sender, "Text echos: "+ JSON.stringify(result))
 				
 				var jsonresult = JSON.stringify(result);
-				jsonresult = JSON.parse(jsonresult);
+				//jsonresult = JSON.parse(jsonresult);
 				
-				sendText(sender, "Text echo "+ JSON.stringify(jsonresult.password))
+				sendText(sender, "Text echo "+ jsonresult)
 				
 			});
 			});
