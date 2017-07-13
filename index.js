@@ -40,14 +40,7 @@ app.post('/webhook/', function(req, res) {
 	database: "iloilocity"
 	});
 
-	con.connect(function(err) {
-		if (err) throw err;
-		con.query("SELECT * FROM users limit 1", function (err, result, fields) {
-		if (err) throw err;
-		//console.log(result);
-		qry = query(result)
-		});
-	});
+
 	
 
 	for (let i = 0; i < messaging_events.length; i++) {
@@ -56,6 +49,17 @@ app.post('/webhook/', function(req, res) {
 		if (event.message && event.message.text) {
 			let text = event.message.text
 			//sendText(sender, "Text echo: " + text.substring(0, 100))
+			
+			con.connect(function(err) {
+				if (err) throw err;
+				con.query("SELECT * FROM users limit 1", function (err, result, fields) {
+				if (err) throw err;
+				//console.log(result);
+				qry = query(result)
+			});
+			});
+			
+			
 			sendText(sender, "Text echo: " + qry)
 		}
 	}
