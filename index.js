@@ -55,7 +55,7 @@ app.post('/webhook/', function(req, res) {
 				//console.log(result);
 				//qry = query(result)
 				
-				sendText(sender, "Text echos: "+ result)
+				sendText(sender, "Text echos: "+ JSON.stringify(result))
 			});
 			});
 			
